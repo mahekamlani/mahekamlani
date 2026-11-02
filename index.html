@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Mahek Amlani, go-to-market and commercial strategist. Twelve career pieces that come together into one story.">
+<meta property="og:title" content="Mahek Amlani · Turning good products into growing businesses">
+<meta property="og:description" content="Go-to-market and commercial strategist. Lisbon MBA, MIT Sloan. Available January 2027.">
+<meta property="og:image" content="portrait.jpg">
+<style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>The Mahek Puzzle</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: fixed 3D stage (dotted globe behind, puzzle in front). The page scroll only drives progress; one fixed story card swaps its text. Desktop: card left. Phone: card on top, puzzle below. */
+:root{
+  --surface:rgba(255,255,255,.88); --ink:#1d2433; --muted:#5f6675; --line:#e2ded5;
+  --blue:#2f5d8c; --good:#5e8c6a; --accent:#c9644a;
+  --body:"Manrope",system-ui,sans-serif; color-scheme:light;
+}
+html{background:#cdb3a6}
+body{background:#cdb3a6;color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+button{font:inherit;cursor:pointer;color:inherit}
+a{color:var(--blue)}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.sky{position:fixed;inset:0;z-index:0;overflow:hidden;background:#3a3550}
+.sky canvas{display:block;width:100%;height:100%}
+.gulls{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.gulls svg{position:absolute;left:-60px;width:26px;opacity:.55;animation:fly linear infinite}
+.gulls svg path{fill:none;stroke:#2a2233;stroke-width:2;stroke-linecap:round}
+@keyframes fly{0%{transform:translate(0,0)}25%{transform:translate(28vw,-14px)}50%{transform:translate(56vw,6px)}75%{transform:translate(84vw,-10px)}100%{transform:translate(calc(100vw + 120px),0)}}
+@media (prefers-reduced-motion:reduce){.gulls{display:none}}
+
+#scene{position:fixed;inset:0;z-index:1;touch-action:pan-y}
+#scene.hover{cursor:pointer}
+#scene canvas{display:block}
+.locs{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.loc span{display:inline-block}
+.loc.pop span{animation:pop .6s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pop{from{transform:scale(.3);opacity:0}to{transform:none;opacity:1}}
+.loc{position:absolute;left:0;top:0;background:var(--accent);color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:4px 10px;white-space:nowrap;transition:opacity .4s;box-shadow:0 6px 16px -8px rgba(0,0,0,.5)}
+.bar{position:fixed;z-index:6;left:0;top:0;height:3px;background:var(--blue);width:0}
+.top{position:fixed;z-index:5;left:0;right:0;top:0;display:flex;gap:10px;align-items:center;justify-content:space-between;pointer-events:none;
+  padding:calc(env(safe-area-inset-top,0px) + 12px) max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px))}
+.top>*{pointer-events:auto}
+.me{display:flex;gap:10px;align-items:center;background:var(--surface);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;padding:6px 14px 6px 6px;min-width:0}
+.me img{width:38px;height:38px;border-radius:50%;flex:none}
+.me b{display:block;font-size:15px;font-weight:800;letter-spacing:-.01em;line-height:1.2}
+.me span{font-size:12px;color:var(--muted)}
+.modes{display:flex;gap:8px;flex:none}
+.pill{background:var(--surface);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700}
+.pill.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+#spacer{position:relative;z-index:0}
+.story{position:fixed;z-index:4;top:50%;transform:translateY(-50%);left:calc(max(16px,env(safe-area-inset-left,0px)) + 16px);width:min(440px,40vw);max-height:calc(100vh - 150px);overflow:auto;
+  background:var(--surface);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.7);border-radius:20px;box-shadow:0 30px 60px -40px rgba(29,36,51,.5)}
+.inner{padding:24px;display:grid;gap:12px;transition:opacity .28s ease,transform .28s ease}
+.inner.out{opacity:0;transform:translateY(-16px)}
+.inner.pre{opacity:0;transform:translateY(16px);transition:none}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.11em;color:var(--accent);text-transform:uppercase}
+h1{margin:0;font-size:clamp(30px,3.8vw,50px);line-height:1.02;font-weight:800;letter-spacing:-.04em;text-wrap:balance}
+h2{margin:0;font-size:clamp(23px,2.5vw,32px);line-height:1.08;font-weight:800;letter-spacing:-.03em;text-wrap:balance}
+.lede{margin:0;font-size:16px;color:var(--muted)}
+.win{margin:0;font-weight:700;color:var(--good)}
+.cats{display:flex;flex-wrap:wrap;gap:6px}
+.cat{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 10px 3px 8px;font-size:12px;font-weight:700}
+.cat::before{content:"";width:9px;height:9px;border-radius:3px;background:var(--c)}
+button.cat[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#fff}
+button.cat[aria-pressed="true"]::before{background:#fff}
+details{border-top:1px solid var(--line);padding-top:8px}
+summary{cursor:pointer;font-weight:800;font-size:13px;color:var(--blue);list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:" ▾"}
+details[open] summary::after{content:" ▴"}
+details>div{display:grid;gap:10px;margin-top:8px}
+.pfg{display:grid}
+.pfg ol{margin:0;padding-left:18px;display:grid;gap:3px}
+.pfg div{display:grid;grid-template-columns:84px 1fr;gap:12px;padding:9px 0;border-top:1px solid var(--line)}
+.pfg div:first-child{border-top:0}
+.pfg span{font-size:11px;font-weight:800;letter-spacing:.1em;padding-top:3px}
+.pfg .p{color:var(--accent)} .pfg .f{color:var(--blue)} .pfg .g{color:var(--good)} .pfg .c{color:#5b4b8a}
+.bdt{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;font-style:normal}
+.bdt i{font-style:normal;font-size:11.5px;font-weight:700;color:#5b4b8a;background:#efeaf6;border-radius:6px;padding:1px 7px}
+.pfg p{margin:0}
+.learned{margin:0;padding:11px 13px;background:#fff;border:1px solid var(--line);border-radius:12px;font-weight:600}
+.learned small{display:block;font-size:11px;letter-spacing:.1em;color:var(--muted);font-weight:800}
+.hint{margin:0;font-size:13px;color:var(--muted)}
+.mix{display:grid;gap:5px}
+.mix div{display:grid;grid-template-columns:104px 1fr 16px;gap:10px;align-items:center;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+.mix i{display:block;height:7px;border-radius:9px;background:var(--c)}
+.final{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center}
+.final img{width:96px;height:120px;object-fit:cover;object-position:50% 20%;border-radius:12px}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn{border-radius:999px;padding:10px 18px;font-weight:700;font-size:14px;border:1px solid var(--line);background:#fff;text-decoration:none;color:var(--ink)}
+.btn.go{background:var(--ink);color:#fff;border-color:var(--ink)}
+.contact{display:flex;flex-wrap:wrap;gap:6px 20px;font-weight:700}
+.contact span{user-select:all}
+.guide{position:fixed;z-index:4;left:calc(50% + min(220px,20vw));transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 20px);display:grid;justify-items:center;gap:8px;
+  background:var(--surface);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:18px;padding:11px 18px;box-shadow:0 20px 40px -30px rgba(29,36,51,.5);max-width:min(420px,52vw);text-align:center}
+.guide b{font-size:14px;font-weight:800}
+.guide small{font-size:12.5px;color:var(--muted);font-weight:600}
+.guide .row{display:flex;align-items:center;gap:12px;text-align:left}
+.dots{display:flex;gap:4px}
+.dots i{width:14px;height:6px;border-radius:3px;background:#d9d5cc;transition:background .3s}
+.mouse{width:18px;height:28px;border:2px solid var(--ink);border-radius:10px;position:relative;flex:none}
+.mouse::after{content:"";position:absolute;left:50%;top:5px;width:3px;height:6px;margin-left:-1.5px;border-radius:2px;background:var(--ink);animation:wheel 1.6s ease-in-out infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(9px)}}
+.rec{position:fixed;inset:0;z-index:10;background:rgba(29,36,51,.4);overflow:auto;
+  padding:calc(env(safe-area-inset-top,0px) + 24px) max(16px,env(safe-area-inset-right,0px)) 24px max(16px,env(safe-area-inset-left,0px))}
+.sheet{max-width:1040px;margin:0 auto;background:#f6f1ea;border-radius:20px;padding:24px;display:grid;gap:14px}
+.sheet .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.sheet>p{margin:0;color:var(--muted)}
+.cv{max-width:820px;gap:18px}
+.cv .meta{margin:4px 0 0;font-size:13px;color:var(--muted)}
+.cv section{display:grid;gap:6px}
+.cv h3{margin:0;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid var(--line);padding-bottom:6px}
+.cv .job{position:relative;padding-right:130px;font-size:14px;margin-top:4px}
+.cv .job span{position:absolute;right:0;top:1px;color:var(--muted);font-size:13px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.sheet .row .btn{flex:none;white-space:nowrap}
+@media (max-width:600px){.cv .job{padding-right:0}.cv .job span{position:static;display:block}}
+.cv ul{margin:0;padding-left:18px;display:grid;gap:3px;font-size:14px}
+.cv p{margin:0;font-size:14px}
+.ct{max-width:520px}
+.crow{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.crow small{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;color:var(--muted)}
+.crow span{font-weight:700;user-select:all;word-break:break-all}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.rc{background:#fff;border:1px solid var(--line);border-top:5px solid var(--c);border-radius:14px;padding:16px;display:grid;gap:6px;align-content:start;min-width:0}
+.rc h3{margin:0;font-size:16px}
+.rc .meta{font-size:12px;color:var(--muted);font-weight:600}
+.rc .pfg div{grid-template-columns:80px 1fr;padding:8px 0;font-size:14px}
+@media (max-width:860px){
+  .me span{display:none}
+  .pill{padding:8px 13px;font-size:13px}
+  .story{top:calc(env(safe-area-inset-top,0px) + 66px);transform:none;left:max(10px,env(safe-area-inset-left,0px));right:max(10px,env(safe-area-inset-right,0px));width:auto;max-height:44vh}
+  .inner{padding:16px;gap:9px}
+  h1{font-size:28px} h2{font-size:22px} .lede{font-size:14px}
+  .guide{left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 10px);max-width:calc(100% - 24px);padding:8px 14px}
+  .guide .mouse,.guide small{display:none}
+}
+@media (prefers-reduced-motion:reduce){.inner,.inner.out{transition:none}.mouse::after{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="sky" aria-hidden="true"><canvas id="skycv"></canvas></div>
+<div class="gulls" aria-hidden="true"><svg viewBox="0 0 26 10" style="top:14%;animation-duration:46s;animation-delay:-5s;width:24px"><path d="M1 7 Q7 1 13 7 Q19 1 25 7"/></svg><svg viewBox="0 0 26 10" style="top:19%;animation-duration:52s;animation-delay:-20s;width:18px"><path d="M1 7 Q7 1 13 7 Q19 1 25 7"/></svg><svg viewBox="0 0 26 10" style="top:11%;animation-duration:60s;animation-delay:-33s;width:14px"><path d="M1 7 Q7 1 13 7 Q19 1 25 7"/></svg><svg viewBox="0 0 26 10" style="top:24%;animation-duration:58s;animation-delay:-12s;width:20px"><path d="M1 7 Q7 1 13 7 Q19 1 25 7"/></svg></div>
+
+<div id="scene" aria-hidden="true"></div>
+<div class="locs" id="locs"><div class="loc" id="loc" style="opacity:0"></div></div>
+<div class="bar" id="bar"></div>
+<header class="top">
+  <div class="me"><img src="avatar.jpg" alt="Mahek Amlani"><div><b>Mahek Amlani</b><span>Go-to-market & commercial strategy</span></div></div>
+  <nav class="modes"><button class="pill" id="bTopCV">Resume ↗</button></nav>
+</header>
+<aside class="story" aria-live="polite"><div class="inner" id="storyIn"></div></aside>
+<main id="spacer"></main>
+<div class="guide"><div class="row"><div class="mouse" aria-hidden="true"></div><div><b id="gT">Scroll down to start</b><br><small id="gS">Each scroll brings in one puzzle piece.</small></div></div><div class="dots" id="dots"></div></div>
+<div class="rec" id="rec" hidden role="dialog" aria-label="Resume">
+  <article class="sheet cv">
+    <div class="row"><div><h2>Mahek Amlani</h2><p class="meta">Lisbon, Portugal · Available January 2027 · +351 920 796 661 · mahekamlani1@gmail.com · <a href="https://www.linkedin.com/in/mahekamlani" target="_blank" rel="noopener">linkedin.com/in/mahekamlani</a></p></div><button class="btn" data-close>Close ✕</button></div>
+    <section><h3>Summary</h3><p>Commercial strategist with five years of business development across agencies, SaaS and my own start-up: winning clients, upselling, managing key accounts, marketing and building partnerships, in India, the US, Canada, the Middle East, New Zealand and Portugal. MBA (Católica | Nova) and MIT Sloan. Now focused on go-to-market and commercial strategy.</p></section>
+    <section><h3>Education</h3>
+      <div class="job"><b>Master of Business Administration (International MBA)</b> · The Lisbon MBA, Católica | Nova<span>Jan–Dec 2026</span></div>
+      <div class="job"><b>Summer Immersion Certificate</b> · MIT Sloan School of Management, Boston<span>Jun 2026</span></div>
+      <div class="job"><b>Bachelor of Journalism & Mass Communication</b>, minor in Management · IILM University, Gurgaon<span>2022</span></div></section>
+    <section><h3>Work experience</h3>
+      <div class="job"><b>Manutan Portugal / Iberia</b> · MBA Strategy Intern, Growth Strategy, B2B Distribution<span>Jul–Aug 2026</span></div>
+      <ul><li>Built a five-year growth strategy and roadmap for a B2B distributor, turning data insights into five recommendations to close its revenue gap.</li>
+        <li>Analysed four years of sales and customer data to size the market by customer segment and set KPIs for target accounts.</li>
+        <li>Developed the business case for an own-brand range and the go-to-market plan, with workplan, milestones and risks.</li>
+        <li>Led stakeholder management across Sales, Marketing, Finance, Transformation and Customer Care; presented to the Iberia Managing Director; the team is now putting the plan into action.</li></ul>
+      <div class="job"><b>The Brand Bee</b> · Senior Social Media Manager, Brand Management & Go-To-Market<span>May–Sep 2025</span></div>
+      <ul><li>Won and ran an international brand's India market entry with Malaika Arora, managing a ~€100K budget; sales volume grew 30x.</li>
+        <li>Built the pitch narrative that won the client; managed vendor negotiation and execution across India within budget.</li>
+        <li>Led concept development for product launches in wellness, beverage and skincare, tracking KPIs across channels.</li>
+        <li>Managed a team of 4–5; main contact for the agency's biggest client accounts.</li></ul>
+      <div class="job"><b>Social4Sake</b> · Co-Founder, Full-Service Marketing Agency<span>Oct 2024–Dec 2025</span></div>
+      <ul><li>Started the agency with two co-founders; signed clients in India and New Zealand in the first three months.</li>
+        <li>Hired and led a 10-person remote team; shared P&L responsibility, owning pricing, proposals and client retention.</li></ul>
+      <div class="job"><b>Kaleidoscope</b> · Social Media Manager, Digital Marketing<span>Apr–Sep 2024</span></div>
+      <ul><li>Ran social media for government clients, growing reach by 45% and engagement by 30%; built performance reports for fashion and bridal brands.</li></ul>
+      <div class="job"><b>Eventcombo Inc</b> (remote: US & Canada) · Account Manager, Sales & Business Development, Events SaaS<span>Aug–Dec 2023</span></div>
+      <ul><li>Closed 12+ B2B deals with law firms, schools and non-profits across the US, Canada and the Middle East, bringing in €85K+ revenue.</li>
+        <li>Helped rebuild lead generation in Apollo and Salesforce CRM; monthly leads went from 50 to 200+.</li></ul>
+      <div class="job"><b>UnFoldMart</b> · Business Development Intern to Senior Account Manager<span>Jun 2021–Jul 2023</span></div>
+      <ul><li>Promoted three times in two years; brought in €75K+ revenue in year one and signed 8+ new clients, including Haldiram's.</li>
+        <li>Owned key accounts in FMCG, edtech (Unacademy), fintech and healthcare; grew sales by 20% for a Haldiram's product in one quarter.</li>
+        <li>Managed and trained the delivery team through three team leads.</li></ul>
+      <p class="meta">Earlier roles (2020–2021): JibJobs (business development), Headstart Network Foundation (project management; workshops reaching 5,000+ professionals and start-ups), Viral Fission (UGC marketing for Pepsi and boAt). Freelance: Fortune Analytica (SEO content, 2024).</p></section>
+    <section><h3>Skills</h3>
+      <p><b>Strategy:</b> go-to-market strategy, commercial strategy, business case development, market sizing, opportunity assessment, executive presentations</p>
+      <p><b>Commercial:</b> business development, B2B sales, key account management, partnerships, product launch, lead generation</p>
+      <p><b>Management:</b> team leadership, hiring and training, stakeholder management, budget management, vendor negotiation</p>
+      <p><b>Tools:</b> Advanced Excel, Salesforce, HubSpot, Apollo, GA4, Meta Ads Manager, AlphaSense, Asana, Trello, Jira · daily AI use (Claude, ChatGPT, Gemini)</p>
+      <p><b>Languages:</b> English (C2), Hindi (native), Portuguese (A1)</p></section>
+    <section><h3>Additional</h3><p>Raised ~€500 for Sparsh NGO (education for children with special needs) · chaired Model United Nations conferences · inter-state competitive swimmer</p></section>
+  </article>
+</div>
+<div class="rec" id="ctm" hidden role="dialog" aria-label="Contact">
+  <div class="sheet ct">
+    <div class="row"><h2>Let's talk</h2><button class="btn" data-close>Close ✕</button></div>
+    <p>I'm in Lisbon and available from January 2027 for go-to-market and commercial strategy roles across Europe.</p>
+    <div class="crow"><div><small>EMAIL</small><span>mahekamlani1@gmail.com</span></div><button class="btn" data-copy="mahekamlani1@gmail.com">Copy</button></div>
+    <div class="crow"><div><small>PHONE</small><span>+351 920 796 661</span></div><button class="btn" data-copy="+351 920 796 661">Copy</button></div>
+    <div class="crow"><div><small>LINKEDIN</small><span>linkedin.com/in/mahekamlani</span></div><a class="btn go" href="https://www.linkedin.com/in/mahekamlani" target="_blank" rel="noopener">Open ↗</a></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const S=[
+ {label:"Bangalore",kind:"Origin",when:"Bangalore · Mumbai · Delhi · Rajasthan",title:"Born in Bangalore. Raised all over India.",
+  fix:"Grew up moving between four very different places. New city, new school, new accent to pick up. Every time.",
+  learned:"Moving around taught me to read a room fast and talk to almost anyone. That later became my whole job.",
+  skills:["Reading people","Talking to anyone","Adapting fast"],roles:["gtm","strategy","pm","brand"]},
+ {label:"IILM",kind:"Study",when:"Gurgaon · 2022",title:"Journalism school, with a business habit",role:"Bachelor of Journalism & Mass Communication, minor in Management",
+  fix:"Learned how stories are told, while quietly asking why people trust some brands and ignore others.",
+  learned:"That question pulled me from writing about businesses to working in them.",
+  skills:["Storytelling","Communication","Management basics"],roles:["brand","gtm"]},
+ {label:"Headstart",kind:"Early role",when:"2020–2021",title:"Headstart Network Foundation",role:"Project management",
+  fix:"Helped run workshops for founders and professionals.",growth:["Workshops reaching 5,000+ professionals and start-ups"],
+  learned:"(Mahek: add your real lesson here.)",
+  skills:["Project management","Events","Start-up ecosystem"],roles:["pm","strategy"]},
+ {label:"JibJobs",kind:"Early role",when:"2020–2021",title:"JibJobs",role:"Business development",
+  fix:"My first taste of finding and pitching customers.",
+  learned:"(Mahek: add your real lesson here.)",
+  skills:["Prospecting","Cold outreach"],roles:["gtm"]},
+ {label:"Viral Fission",kind:"Early role",when:"2020–2021",title:"Viral Fission",role:"UGC marketing",
+  fix:"Worked on user-generated content campaigns for Pepsi and boAt.",
+  learned:"(Mahek: add your real lesson here.)",
+  skills:["UGC campaigns","Youth marketing"],roles:["brand"]},
+ {label:"UnFoldMart",kind:"Chapter 01",when:"Gurgaon · 2021–2023",title:"Learning to win a client, and keep one",role:"UnFoldMart · BD Intern → Senior Account Manager",ghost:{name:"Coldy",c:"#ef5b5b"},stat:"€75K+",
+  pain:"A young branding agency needed big-name clients, and needed them fast.",
+  fix:"Found brands, pitched them, won them, then stayed with each one through launch, reporting and the next brief. Trained the delivery team through three team leads.",
+  growth:["€75K+ revenue in year one","8+ clients, including Haldiram's and Unacademy","+20% sales for a Haldiram's product in one quarter","Promoted 3 times in 2 years"],
+  learned:"Winning a client is a pitch. Keeping one is a habit.",
+  skills:["B2B pitching","Key accounts","FMCG","Team training"],roles:["gtm","brand"]},
+ {label:"Eventcombo",kind:"Chapter 02",when:"Remote: US & Canada · 2023",title:"What actually closes a deal",role:"Eventcombo · Account Manager, Events SaaS",ghost:{name:"Leaky",c:"#f08c00"},stat:"4x leads",
+  pain:"The sales pipeline was stuck at about 50 leads a month, and the company was pushing to break even.",
+  fix:"Rebuilt lead generation in Apollo and Salesforce. Sold event software to law firms, schools and non-profits in three markets.",
+  growth:["Leads went from 50 to 200+ a month","12+ B2B deals closed","€85K+ revenue"],
+  learned:"Features get you the meeting. Trust closes the deal.",
+  skills:["SaaS sales","Salesforce","Apollo","Pipeline building"],roles:["gtm","pm","strategy"]},
+ {label:"Kaleidoscope",kind:"Chapter 03",when:"Gurgaon · 2024",title:"Stop guessing, start measuring",role:"Kaleidoscope · Social Media Manager",ghost:{name:"Guessy",c:"#9c5bd6"},stat:"+45%",
+  pain:"Campaigns were planned on gut feeling about who the audience was.",
+  fix:"Chose platforms, audiences and messages using Google and Meta analytics, then reported results back to clients.",
+  growth:["+45% reach for government clients","+30% engagement"],
+  learned:"Stop guessing the audience. Ask the data.",
+  skills:["GA4","Meta Ads","Performance reporting"],roles:["brand","gtm"]},
+ {label:"Social4Sake",kind:"Chapter 04",when:"Gurgaon · 2024–2025",title:"Building an agency from zero",role:"Social4Sake · Co-Founder",ghost:{name:"Zero-y",c:"#2f8fd8"},stat:"2 markets",
+  pain:"A brand-new agency with zero clients, zero team and zero brand.",
+  fix:"With two co-founders, set the positioning and pricing, pitched our way to the first clients, and hired a remote team. Shared the P&L.",
+  growth:["Clients in India and New Zealand within 3 months","10-person remote team","4 sectors"],
+  learned:"Pricing is just strategy holding a calculator.",
+  skills:["P&L","Pricing","Hiring","Positioning"],roles:["strategy","gtm","brand"]},
+ {label:"Brand Bee",kind:"Chapter 05",when:"Gurgaon · 2025",title:"Launching a brand across India",role:"The Brand Bee · Senior Social Media Manager, Brand & GTM",ghost:{name:"Budgety",c:"#e64980"},stat:"30x",
+  pain:"SweetC, an international exotic-fruit brand, wanted to enter India with a celebrity campaign. On a tight budget.",
+  fix:"Built the pitch story that won the account, led the go-to-market plan, negotiated with vendors and ran a nationwide campaign with Malaika Arora. Led a team of 4–5.",
+  growth:["30x sales volume","~€100K budget, delivered on budget"],
+  learned:"A big launch is 10% idea and 90% vendors picking up the phone.",
+  skills:["Market entry","Product launch","Vendor negotiation","Celebrity campaigns"],roles:["gtm","brand"]},
+ {label:"Lisbon MBA",kind:"Upgrade",when:"Lisbon · 2026",title:"Why did my work succeed?",role:"The Lisbon MBA, Católica | Nova · International MBA",
+  fix:"I wanted to understand why my work succeeded, and how to make it work at a much bigger scale.",
+  learned:"(Mahek: add a favourite class or moment.)",
+  skills:["Corporate strategy","Finance","Frameworks"],roles:["strategy","pm","gtm","brand"]},
+ {label:"MIT Sloan",kind:"Upgrade",when:"Boston · June 2026",title:"A month at MIT Sloan",role:"Summer Immersion Certificate",
+  fix:"Strategy, marketing and operations, learned alongside founders who had built million-dollar companies.",
+  learned:"(Mahek: add your MIT story here.)",
+  skills:["Operations","Innovation","Founder mindset"],roles:["strategy","pm"]},
+ {label:"Manutan",kind:"Chapter 06",when:"Lisbon · 2026",title:"A growth plan to 2030",role:"Manutan Portugal / Iberia · MBA Strategy Intern",ghost:{name:"Gappy",c:"#2b9a66"},stat:"5 levers",
+  pain:"A European B2B distributor had a revenue gap to close by 2030.",
+  fix:"Analysed four years of sales and customer data, sized the Portuguese market by segment, tiered accounts for sales, and built the business case and GTM plan for an own-brand range.",
+  growth:["5-year roadmap with five recommendations","Presented to the Iberia Managing Director","Worked across 5 teams"],
+  learned:"Big companies need the same thing small clients do: a clear story with numbers behind it.",
+  skills:["Market sizing","Segmentation","Business case","Exec presentation"],roles:["strategy","gtm","pm"]},
+ {label:"Hire me",kind:"What's next",when:"Lisbon · open to Europe · January 2027",title:"Next level: your team",gate:true,
+  fix:"Five years, six markets, 15+ industries. Looking for go-to-market, strategy, product and brand roles.",
+  learned:"I bring one question to every room: who buys, and why? Then I do the work to answer it.",
+  skills:["Ready to start"],roles:["gtm","strategy","pm","brand"]}
+];
+const ROLE_SKILLS={gtm:/sales|pitch|market|launch|pipeline|account|prospect|pricing|outreach/i,strategy:/strateg|sizing|segment|business case|p&l|framework|exec|operations/i,pm:/product|project|saas|operations|launch|innovation/i,brand:/brand|story|campaign|ugc|ads|position|celebrity|youth/i};
+const $=id=>document.getElementById(id);
+const CATS={"Communication":"#d4a13d","Marketing":"#c9644a","Sales":"#a8475a","Business Dev":"#5e8c6a","Go-to-market":"#2f5d8c","Operations":"#3f8c8c","Strategy":"#5b4b8a","Finance":"#26324a"};
+const PC={"Bangalore":["Communication"],"IILM":["Marketing","Communication"],"Headstart":["Operations"],"JibJobs":["Business Dev","Sales"],"Viral Fission":["Marketing"],"UnFoldMart":["Business Dev","Sales"],"Eventcombo":["Sales","Go-to-market"],"Kaleidoscope":["Marketing"],"Social4Sake":["Strategy","Business Dev"],"Brand Bee":["Go-to-market","Marketing"],"Lisbon MBA":["Finance","Strategy","Operations"],"Manutan":["Strategy","Go-to-market"]};
+const P=S.filter(x=>PC[x.label]).map(x=>Object.assign({},x,{cats:PC[x.label]}));
+Object.assign(P.find(x=>x.label==="Lisbon MBA"),{label:"MBA + MIT",kind:"The connector",when:"Lisbon & Boston · 2026",title:"The MBA: where the pieces clicked",
+  role:"The Lisbon MBA, Católica | Nova · MIT Sloan Summer Immersion",
+  fix:"I had done sales, marketing, BD and go-to-market as separate jobs. The MBA and a month at MIT Sloan added what I had never been formally taught: finance, operations and corporate strategy. Suddenly the separate jobs looked like one system.",
+  learned:"A generalist with a framework is a strategist. (Mahek: add a favourite class or moment.)"});
+const GRID={"Bangalore":[0,0],"IILM":[1,0],"Headstart":[2,0],"JibJobs":[3,0],"Viral Fission":[0,1],"UnFoldMart":[1,1],"MBA + MIT":[2,1],"Eventcombo":[3,1],"Kaleidoscope":[0,2],"Social4Sake":[1,2],"Brand Bee":[2,2],"Manutan":[3,2]};
+P.find(x=>x.label==="UnFoldMart").url="https://www.unfoldmart.com";
+const N=P.length,COLS=4,ROWS=3,U=1.5,col=p=>CATS[p.cats[0]];
+const pfg=x=>`<div class="pfg"><div><span class="p">SITUATION</span><p>${x.situation}</p></div><div><span class="f">STEPS</span><ol>${x.steps.map(t=>`<li>${t}</li>`).join("")}</ol></div><div><span class="g">WHAT I DID</span><p>${x.did}</p></div>${x.bd?`<div><span class="c">COMMERCIAL</span><p>${x.bd}<em class="bdt">${x.bdc.map(t=>`<i>${t}</i>`).join("")}</em></p></div>`:""}</div>`;
+const catChips=cs=>cs.map(c=>`<span class="cat" style="--c:${CATS[c]}">${c}</span>`).join("");
+// Story text, written from Mahek's portfolio: situation, steps, what I did, what I learned
+const STORY={
+ "Bangalore":{title:"Born in Bangalore, raised all over India",win:"4 cities · 1 skill: reading people",
+  situation:"I grew up moving between Bangalore, Mumbai, Delhi and Rajasthan. New city, new school, new friends. Again and again.",
+  steps:["Walked into new rooms and made friends fast","Noticed how people talk, joke and decide in each city","Became the one who listens first"],
+  did:"Turned constant change into my first real skill: understanding people.",
+  learned:"Every place has its own customers. You win them by listening before you speak."},
+ "IILM":{title:"Journalism school, with a business habit",win:"Storytelling + management",
+  situation:"I studied journalism and mass communication, with a minor in management. I was learning how stories are told.",
+  steps:["Learned to research, interview and write","Kept asking one question: why do people trust some brands and ignore others?","Took management classes to find the answer"],
+  did:"Graduated in 2022 with a storyteller's toolkit and a business brain.",
+  learned:"That question moved me from writing about businesses to working in them."},
+ "Headstart":{title:"My first look at start-ups",win:"5,000+ people reached",
+  situation:"Headstart Network Foundation runs workshops for start-ups and young professionals. I joined to help run them.",
+  steps:["Helped plan workshops and line up speakers","Kept people, venues and timelines in sync","Followed up with people after each event"],
+  did:"Helped run workshops that reached 5,000+ professionals and start-ups.",
+  learned:"A big event is just many small tasks done on time. That is project management."},
+ "JibJobs":{title:"My first cold calls",win:"First taste of sales",
+  situation:"JibJobs needed new business. I had a list of leads, a phone and a target.",
+  steps:["Researched every lead before calling","Reached out and pitched","Tracked every reply and followed up"],
+  did:"Learned business development by doing it every single day.",
+  learned:"A 'no' is not personal. It tells you what to say better next time."},
+ "Viral Fission":{title:"Marketing that people make themselves",win:"Campaigns for Pepsi and boAt",
+  situation:"Viral Fission runs user-generated content campaigns, where real people create the ads. I worked on campaigns for Pepsi and boAt.",
+  steps:["Worked with young creators","Helped plan content for brand campaigns","Watched what people shared and what they skipped"],
+  did:"Supported UGC campaigns for two big consumer brands.",
+  learned:"People trust people more than they trust ads."},
+ "UnFoldMart":{title:"Learning to win a client, and keep one",win:"€75K+ in year one · 8+ clients · 3 promotions",
+  situation:"UnFoldMart was a young branding, packaging and digital agency. I joined as a business development intern. My job: find brands, pitch to them and win them.",
+  steps:["Found brands and pitched to them","Stayed with each client through the launch, the reports and the next brief","Trained designers, writers and junior account managers"],
+  did:"Brought in €75K+ in my first year and won 8+ clients, including Haldiram's and Unacademy. Promoted 3 times, to Senior Account Manager. Favourite work: the Haldiram's Minute Khana launch, Bonvie Snacks packaging and the WTi Cabs social rebrand.",
+  learned:"Winning a client is a pitch. Keeping one is a habit."},
+ "Eventcombo":{title:"Selling in three markets taught me what closes a deal",win:"€85K+ revenue · 12+ contracts · 3 markets",
+  situation:"Eventcombo is a US software platform for planning and running events. It needed more sales to reach break-even.",
+  steps:["Rebuilt lead generation with Apollo and one Salesforce pipeline","Sold to law firms, schools and non-profits","Covered the US, Canada and the Middle East"],
+  did:"Closed 12+ contracts and €85K+ in revenue, helping the company move towards break-even.",
+  learned:"The product matters, but the relationship matters more. A client who trusts you brings the next one."},
+ "Kaleidoscope":{title:"Stop guessing, look at the data",win:"+45% visibility · +30% engagement",
+  situation:"Kaleidoscope is a 360° creative and marketing agency. I looked after government, fashion and bridal clients.",
+  steps:["Pitched and ran the full marketing strategy","Chose the platforms, the audience and the message","Used Google and Meta analytics to decide, then reported back"],
+  did:"Grew visibility for government clients by 45% and engagement by 30%.",
+  learned:"I stopped guessing who the audience was and started looking at the data."},
+ "Social4Sake":{title:"Building an agency from the ground up",win:"2 markets · 10 people · first clients in 3 months",
+  situation:"I wanted to use everything I had learned about relationships to build something of my own. With two co-founders, I started a 360° marketing agency.",
+  steps:["Set our positioning and pricing","Pitched and won our first clients in India and New Zealand","Hired and ran a 10-person remote team"],
+  did:"Won our first clients within 3 months, across 4 sectors and 2 markets.",
+  learned:"The agency grew, and it made me want to work at a much bigger scale."},
+ "Brand Bee":{title:"My biggest launch: a new brand across India",win:"30x sales volume · ~€100K budget",
+  situation:"SweetC, an international exotic-fruit brand, was choosing an agency to enter India. The hard part: a nationwide campaign with celebrity Malaika Arora, on a fixed budget.",
+  steps:["Met the client many times to understand their goals and budget","Built the pitch story that won the account","Led the go-to-market plan and used industry relationships to find the right vendors","Stayed the client's single point of contact"],
+  did:"Delivered the launch within a ~€100K budget. Sales volume grew 30x.",
+  learned:"A big launch is 10% idea and 90% the right people picking up the phone."},
+ "MBA + MIT":{title:"Why did my work succeed?",win:"Lisbon MBA · MIT Sloan",
+  situation:"After five years of doing, I wanted to understand why my work succeeded, and how to make it work at a much larger scale.",
+  steps:["Came to Lisbon for the International MBA at Católica | Nova","Spent a month at MIT Sloan on strategy, marketing and operations","Learned from founders who had built million-dollar companies"],
+  did:"Added finance, operations and strategy to my toolkit. The separate pieces started to fit together.",
+  learned:"A generalist with a framework becomes a strategist."},
+ "Manutan":{title:"A growth plan to 2030",win:"5 growth levers · now being put into action",
+  situation:"Manutan is a French-owned European distributor of workplace supplies for businesses. Its Iberia team had a revenue gap to close.",
+  steps:["Data: studied four years of customer data","Market sizing: sized Portugal, sector by sector","Targeting: sorted accounts into tiers for the sales team","GTM model: planned how to reach each tier","Plan to 2030: five levers to close the gap"],
+  did:"Worked with five teams and presented five growth levers to the Iberia Managing Director. Manutan liked the plan and is now putting it into action.",
+  learned:"This is the work I want to go deep in: go-to-market and growth strategy."}
+};
+P.forEach(p=>Object.assign(p,STORY[p.label]||{}));
+const BD={"Headstart": {"bd": "Worked with speakers and partner organisations to make each workshop happen.", "bdc": ["Partnerships", "Client relationships"]}, "JibJobs": {"bd": "Cold outreach, pitching and follow-ups: the base of all my business development.", "bdc": ["BD", "Client relationships"]}, "Viral Fission": {"bd": "Worked with creators and brand teams to get campaigns live for Pepsi and boAt.", "bdc": ["Marketing", "Partnerships"]}, "UnFoldMart": {"bd": "Found and won new brands like Haldiram's and Unacademy, then grew each account by turning one project into the next.", "bdc": ["BD", "Upselling", "Client relationships", "Marketing"]}, "Eventcombo": {"bd": "Built the pipeline, closed new accounts and kept clients coming back for their next event.", "bdc": ["BD", "Upselling", "Client relationships"]}, "Kaleidoscope": {"bd": "Pitched new clients and kept government, fashion and bridal clients close with clear reports.", "bdc": ["BD", "Client relationships", "Marketing"]}, "Social4Sake": {"bd": "As a founder I did it all: won clients, sold bigger packages to existing ones, ran their marketing and brought in partners when a client needed them.", "bdc": ["BD", "Upselling", "Client relationships", "Marketing", "Partnerships"]}, "Brand Bee": {"bd": "Won the SweetC account, managed the client day to day, and brought in the right vendors and the celebrity partner, Malaika Arora.", "bdc": ["BD", "Client relationships", "Marketing", "Partnerships"]}, "Manutan": {"bd": "Turned my BD experience into strategy: tiered key accounts and planned how sales should reach each tier.", "bdc": ["BD", "Marketing"]}};
+P.forEach(p=>Object.assign(p,BD[p.label]||{}));
+// where each piece happened (lat, lon, label)
+const LOC={blr:[12.97,77.59,"Bangalore, India"],ncr:[28.46,77.03,"Gurgaon, India"],ind:[28.61,77.21,"Delhi NCR, India"],nj:[40.72,-74.04,"New Jersey, USA"],lis:[38.72,-9.14,"Lisbon, Portugal"],bos:[42.36,-71.09,"Boston, USA"]};
+const PLOC={"Bangalore":"blr","IILM":"ncr","Headstart":"ind","JibJobs":"ind","Viral Fission":"ind","UnFoldMart":"ncr","Eventcombo":"nj","Kaleidoscope":"ncr","Social4Sake":"ncr","Brand Bee":"ncr","MBA + MIT":"lis","Manutan":"lis"};
+const EXTRA=[[19.08,72.88],[26.91,75.79],[51.05,-114.07],[25.2,55.27],[-36.85,174.76]]; // Mumbai, Rajasthan, Calgary, Dubai, Auckland: places in the story
+const LAND="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf4AP/gAAAAAAAAAAAAAAAAAAAAAAAX/z///+AAAAAAAABAAAAAAAAAAAAAYd8P///wAA+AAAAAA8AAAAAAAAAAAwAnw////4AAIAAAAAAGAAAAAAAAAAADivwAf//wAAAAADAAf/wAHYAAAAAADoi3sAP//gAAAAAMAD///sAAAAgBgACfwz/AD/+gAAA4AEHf///+/8gBAP/7/nJdjwD/+AAAH/AA7f///////f4P//////h8H/gAAAf/6//f////////Mf/////9H4D8AeAA+ev///////////AP/////4A0B4AAAD5/////////////Af3////gHgA4AAAH5///////////LwAHgH///gHkAAAAAH4/////////+CIAABAB///4D+AAAAGCx/////////4A8AAIAAf///n/gAAAOCD/////////wA4AAAAAf///n/wAAAbP///////////AgAAAAAP/////wAAADf//////////9AAAAAAAF////0YAAAB///////////9AAAAAAAD////8EAAAB///////////5AAAAAAAD////2AAAAB/f5fP//////wAAAAAAAD////gAAAAfxnwPP//////jAAAAAAAD////AAAAAPCb3/n/////+CAAAAAAAD///8AAAAAfALf/n////+ECAAAAAAAB///8AAAAAGHQP/n/////mMAAAAAAAA///8AAAAAH+Ai///////E8AAAAAAAAf//wAAAAAP/AA///////BgAAAAAAAAP//gAAAAAf/73///////gAAAAAAAAAD/AQAAAAAf////f/////gAAAAAAAAAF+AQAAAAB///+/n/////AAAAAAAAAAC+AAAAAAB///+f0H////AAAAAAAAAAAeAwAAAAD////f/B///8gAAAAAAAAAAeGEAAAAH////v+B/z/AAAAAAAAAAAAPMAgAAAD////n+A/B+gAAAAAAAAAAAD8AAAAAD////n4AeB/AgAAAAAAAAAAAPAAAAAH////3gAcAfAgAAAAAAAAAAADAAAAAD////6AAcAfggAAAAAAAAAAABDwAAAD////8wAMATAIAAAAAAAAAAAAr/AAAB/////gAKASAAAAAAAAAAAAAAH/gAAA/////gACAAAIAAAAAAAAAAAAH/8AAAaH///AAAAsGAAAAAAAAAAAAAH/+AAAAB//+AAAAUOAAAAAAAAAAAAAP/+AAAAB//8AAAAYegAAAAAAAAAAAAP//gAAAD//4AAAAMeBgAAAAAAAAAAAP//8AAAB//wAAAAGdiuAAAAAAAAAAAf///AAAA//wAAAACAQHgAAAAAAAAAAP///gAAA//wAAAABwAHwgAAAAAAAAAH///AAAA//wAAAAACIDQIAAAAAAAAAH//+AAAAf/wAAAAAAAAAAAAAAAAAAAD//+AAAA//wgAAAAABxAAAAAAAAAAAD//+AAAA//wgAAAAAPxgBAAAAAAAAAA//8AAAA//jgAAAAAf5gAAAAAAAAAAAf/8AAAA//DgAAAAAf/gAAAAAAAAAAAf/8AAAAf/DAAAAAD//4CAAAAAAAAAAf/wAAAAf/DAAAAAH//4AAAAAAAAAAAf/AAAAAf+CAAAAAH//8AAAAAAAAAAAf/AAAAAP8AAAAAAH//+AAAAAAAAAAA/+AAAAAP8AAAAAAH//+AAAAAAAAAAA/+AAAAAH4AAAAAAD//+AAAAAAAAAAA/8AAAAAHwAAAAAADwf8AAAAAAAAAAA/gAAAAAAAAAAAAACAH4AIAAAAAAAAB/wAAAAAAAAAAAAAAAD4AEAAAAAAAAB+AAAAAAAAAAAAAAAAAAAGAAAAAAAAB6AAAAAAAAAAAAAAAAAwAMAAAAAAAAA8AAAAAAAAAAAAAAAAAQAYAAAAAAAAB4AAAAAAAAAAAAAAAAAAAwAAAAAAAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAAAAAAAACAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAeAAIP+f/gAAAAAAAAAAAMAAAAAAABP/+H//////AAAAAAAAAAA+AAAAAf////8////////AAAAAAAOEAPAAAB///////////////gAAAP//T//8AAAH//////////////+AAAH/////4AAAH///////////////8AAE//////4ABw////////////////8AAAD//////gCA////////////////wAAAf/////////////////////////+A/4A///////////////////////////////////////////////////////////////////////////////////////";
+
+// ---------- 3D ----------
+const host=$("scene");let R3=null;try{R3=new THREE.WebGLRenderer({antialias:true,alpha:true});}catch(e){}
+const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(38,1,.1,150),stage=new THREE.Group(),board=new THREE.Group(),globe=new THREE.Group();
+const GR=5.2,D=Math.PI/180;stage.position.set(0,-1.5,0);board.scale.setScalar(1.2);stage.add(board);scene.add(stage);globe.position.set(1.4,2.6,-9.5);scene.add(globe);
+const std=(c,o={})=>new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.55},o));
+const qI=new THREE.Quaternion();let pieces=[],ground,pins={},arcs=[],dotG=null,dotBase=null,near={},hiK=null,orbitG,plane,puffs;
+let seed=11;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const hS=(c,r)=>((c*5+r*3)%2?1:-1),vS=(c,r)=>((c*3+r*7+1)%2?1:-1);
+function edge(sh,ax,ay,bx,by,s){if(!s){sh.lineTo(bx,by);return;}const dx=bx-ax,dy=by-ay,p=(t,h)=>[ax+dx*t+dy*h*s,ay+dy*t-dx*h*s];
+  sh.lineTo(...p(.35,0));sh.bezierCurveTo(...p(.42,.05),...p(.3,.2),...p(.5,.2));sh.bezierCurveTo(...p(.7,.2),...p(.58,.05),...p(.65,0));sh.lineTo(bx,by);}
+function labelTex(p,n,c,yb){const cv=document.createElement("canvas");cv.width=cv.height=1024;const g=cv.getContext("2d");g.scale(2,2);
+  g.fillStyle=col(p);g.fillRect(0,0,512,512);g.fillStyle="rgba(255,255,255,.07)";for(let k=0;k<512;k+=16)g.fillRect(0,k,512,1);
+  g.fillStyle=p.cats[0]==="Communication"?"#2b1f05":"#fff";g.textAlign="center";g.textBaseline="middle";
+  g.globalAlpha=.75;g.font="800 17px Manrope,sans-serif";g.fillText(String(n+1).padStart(2,"0"),256,296);g.globalAlpha=1;
+  let fs=40;g.font=`800 ${fs}px Manrope,sans-serif`;while(g.measureText(p.label).width>196&&fs>16){fs--;g.font=`800 ${fs}px Manrope,sans-serif`;}g.fillText(p.label,256,332);
+  const t=new THREE.CanvasTexture(cv);t.encoding=THREE.sRGBEncoding;t.anisotropy=4;t.repeat.set(1/1.6,1/1.6);t.offset.set(-(c-.3)/1.6,-(yb-.3)/1.6);return t;}
+
+// little low-poly scenes that grow on each piece (y is up, objects sit in the back half, the name stays readable in front)
+const flat=c=>std(c,{roughness:.7,flatShading:true});
+function add(g,geo,c,x,y,z,o={}){const m=new THREE.Mesh(geo,flat(c));m.position.set(x,y,z);if(o.rx)m.rotation.x=o.rx;if(o.ry)m.rotation.y=o.ry;if(o.rz)m.rotation.z=o.rz;m.castShadow=m.receiveShadow=true;g.add(m);return m;}
+const Bx=(w,h,d)=>new THREE.BoxGeometry(w,h,d).translate(0,h/2,0),Cy=(r,h,s=14,r2=r)=>new THREE.CylinderGeometry(r2,r,h,s).translate(0,h/2,0),
+  Co=(r,h,s=8)=>new THREE.ConeGeometry(r,h,s).translate(0,h/2,0),Sp=(r,s=10)=>new THREE.SphereGeometry(r,s,Math.ceil(s*.7));
+const tree=(g,x,z,s=1)=>{add(g,Cy(.015*s,.05*s,6),"#8a6a4a",x,0,z);add(g,Co(.06*s,.15*s,7),"#5e8c6a",x,.04*s,z);};
+const house=(g,x,z,c,ry=0)=>{add(g,Bx(.11,.08,.1),c,x,0,z,{ry});add(g,Co(.09,.07,4),"#8b4a3c",x,.08,z,{ry:ry+Math.PI/4});};
+const crate=(g,x,y,z,c="#c9a36a")=>add(g,Bx(.06,.06,.06),c,x,y,z);
+const SCENES={
+  "Bangalore":g=>{house(g,-.2,-.18,"#f2e3c9");house(g,0,-.26,"#e9c9b0",.4);house(g,.2,-.14,"#f4efe7",-.3);tree(g,-.28,.0);tree(g,.3,-.32,.9);tree(g,.08,-.04,.8);},
+  "IILM":g=>{add(g,Bx(.44,.03,.2),"#e8e2d6",0,0,-.18);add(g,Bx(.4,.13,.14),"#f4efe7",0,.03,-.2);for(let k=0;k<5;k++)add(g,Cy(.012,.12,8),"#fff",-.16+k*.08,.03,-.11);
+    add(g,Bx(.44,.03,.2),"#d4a13d",0,.16,-.18);add(g,Co(.24,.08,4),"#c9644a",0,.19,-.18,{ry:Math.PI/4});tree(g,.3,-.3);},
+  "Headstart":g=>{add(g,Cy(.2,.04,24),"#e8e2d6",0,0,-.18);add(g,Bx(.07,.09,.05),"#3f8c8c",0,.04,-.22);add(g,Bx(.34,.14,.02),"#26324a",0,.04,-.36);
+    for(let k=0;k<5;k++)add(g,Sp(.025,8),["#c9644a","#2f5d8c","#d4a13d","#5e8c6a","#5b4b8a"][k],-.16+k*.08,.05,-.02);},
+  "JibJobs":g=>{add(g,Bx(.13,.34,.13),"#dfe6ee",-.06,0,-.2);for(let k=0;k<5;k++)add(g,Bx(.135,.012,.135),"#2f5d8c",-.06,.05+k*.06,-.2);
+    add(g,Bx(.1,.18,.1),"#f4efe7",.14,0,-.16);tree(g,.26,-.32);},
+  "Viral Fission":g=>{add(g,Bx(.18,.3,.03),"#1d2433",0,0,-.22,{rx:-.15});add(g,Bx(.15,.24,.01),"#c9644a",0,.03,-.2,{rx:-.15});
+    add(g,Sp(.04),"#e8a0a0",-.16,.26,-.14);add(g,Sp(.03),"#d4a13d",.17,.2,-.1);add(g,Sp(.025),"#2f5d8c",.12,.32,-.24);},
+  "UnFoldMart":g=>{add(g,Bx(.3,.14,.16),"#f4efe7",0,0,-.22);add(g,Bx(.32,.025,.08),"#a8475a",0,.14,-.12,{rx:.35});add(g,Bx(.08,.08,.01),"#5e8c6a",0,0,-.14);
+    crate(g,.22,0,-.04);crate(g,.27,0,-.1);crate(g,.245,.06,-.07);crate(g,-.24,0,-.06,"#d4a13d");},
+  "Eventcombo":g=>{add(g,Cy(.2,.07,28),"#e8e2d6",0,0,-.16);add(g,Cy(.15,.075,28),"#2f5d8c",0,0,-.16);
+    for(const x of[-.26,.26]){add(g,Cy(.01,.3,6),"#5f6675",x,0,-.3);add(g,Co(.04,.05,8),"#d4a13d",x,.3,-.3,{rx:Math.PI});}add(g,Bx(.12,.05,.01),"#c9644a",0,.12,-.33);},
+  "Kaleidoscope":g=>{[.08,.14,.2,.3].forEach((h,k)=>add(g,Bx(.07,h,.07),["#d4a13d","#c9644a","#a8475a","#5b4b8a"][k],-.15+k*.1,0,-.18));add(g,Sp(.03),"#5e8c6a",.2,.36,-.18);},
+  "Social4Sake":g=>{add(g,Cy(.13,.03,20),"#e8e2d6",0,0,-.16);add(g,Cy(.045,.24,14),"#f4efe7",0,.03,-.16);add(g,Co(.045,.09,14),"#c9644a",0,.27,-.16);
+    for(let k=0;k<3;k++){const a=k/3*Math.PI*2;add(g,Bx(.012,.08,.06),"#5b4b8a",Math.cos(a)*.05,.03,-.16+Math.sin(a)*.05,{ry:-a});}add(g,Sp(.05,8),"#ffffff",0,.0,-.16);},
+  "Brand Bee":g=>{for(const x of[-.12,.12])add(g,Cy(.012,.2,6),"#5f6675",x,0,-.3);add(g,Bx(.34,.15,.02),"#2f5d8c",0,.17,-.3);add(g,Bx(.3,.11,.01),"#d4a13d",0,.19,-.29);
+    add(g,Sp(.09,12),"#d6457a",.04,.09,-.08);add(g,Co(.03,.06,6),"#5e8c6a",.04,.17,-.08);},
+  "MBA + MIT":g=>{add(g,Bx(.36,.12,.18),"#e8e2d6",0,0,-.2);for(let k=0;k<6;k++)add(g,Cy(.011,.1,8),"#fff",-.15+k*.06,.02,-.1);
+    add(g,Cy(.11,.03,20),"#f4efe7",0,.12,-.2);add(g,new THREE.SphereGeometry(.1,18,10,0,Math.PI*2,0,Math.PI/2),"#cfd6de",0,.15,-.2);
+    add(g,Bx(.1,.012,.1),"#26324a",.2,.3,-.06,{ry:.6});add(g,Cy(.03,.03,10),"#26324a",.2,.27,-.06);},
+  "Manutan":g=>{add(g,Bx(.3,.12,.2),"#dfe6ee",-.04,0,-.22);add(g,new THREE.CylinderGeometry(.1,.1,.3,14,1,false,0,Math.PI).rotateZ(Math.PI/2).translate(0,.12,0),"#5b4b8a",-.04,0,-.22);
+    add(g,Bx(.14,.07,.07),"#f4efe7",.2,.015,-.06);add(g,Bx(.05,.06,.065),"#2f5d8c",.29,.015,-.06);for(const x of[.16,.24,.29])add(g,Cy(.015,.02,10).rotateX(Math.PI/2),"#1d2433",x,.0,-.025);
+    crate(g,-.26,0,-.02);crate(g,-.2,0,-.02);}
+};
+
+const v3=(lat,lon,r=GR)=>{const a=lat*D,b=lon*D;return new THREE.Vector3(r*Math.cos(a)*Math.sin(b),r*Math.sin(a),r*Math.cos(a)*Math.cos(b));};
+function buildGlobe(){
+  globe.add(new THREE.Mesh(new THREE.SphereGeometry(GR*.985,64,48),std(0x4a456f,{roughness:.8})));
+  const halo=document.createElement("canvas");halo.width=halo.height=256;const hg=halo.getContext("2d"),rg=hg.createRadialGradient(128,128,96,128,128,128);
+  rg.addColorStop(0,"rgba(255,214,176,.9)");rg.addColorStop(.35,"rgba(255,190,150,.45)");rg.addColorStop(1,"rgba(255,190,150,0)");hg.fillStyle=rg;hg.fillRect(0,0,256,256);
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(halo),depthWrite:false}));sp.scale.setScalar(GR*2.55);sp.renderOrder=-1;globe.add(sp);
+  const bin=atob(LAND),pts=[],lats=[],S2=2;let n=0;
+  for(let lat=90-S2/2;lat>-90;lat-=S2)for(let lon=-180+S2/2;lon<180;lon+=S2,n++){
+    if(!(bin.charCodeAt(n>>3)>>(7-(n&7))&1))continue;const skip=Math.max(1,Math.round(1/Math.cos(lat*D)));if(Math.round((lon+180)/S2)%skip)continue;pts.push(v3(lat,lon,GR*1.004));lats.push(lat);}
+  const dot=document.createElement("canvas");dot.width=dot.height=32;const dg=dot.getContext("2d");dg.fillStyle="#fff";dg.beginPath();dg.arc(16,16,14,0,7);dg.fill();
+  const C1=new THREE.Color(0xf2b77e),C2=new THREE.Color(0xe39a8c),C3=new THREE.Color(0xf7eee4),cc=new THREE.Color();dotBase=new Float32Array(pts.length*3);
+  pts.forEach((p,i)=>{const a=Math.abs(lats[i])/72;cc.copy(C1).lerp(C2,Math.min(1,a*1.6));if(a>.62)cc.lerp(C3,Math.min(1,(a-.62)*2.6));cc.toArray(dotBase,i*3);});
+  dotG=new THREE.BufferGeometry().setFromPoints(pts);dotG.setAttribute("color",new THREE.BufferAttribute(dotBase.slice(),3));
+  globe.add(new THREE.Points(dotG,new THREE.PointsMaterial({size:.13,vertexColors:true,map:new THREE.CanvasTexture(dot),alphaTest:.5})));
+  Object.entries(LOC).forEach(([k,[a,b]])=>{const L=v3(a,b,1);near[k]=[];pts.forEach((p,i)=>{if(p.clone().normalize().angleTo(L)<.14)near[k].push(i);});});
+  EXTRA.forEach(([a,b])=>{const m=new THREE.Mesh(new THREE.SphereGeometry(.05,10,8),new THREE.MeshBasicMaterial({color:0x8a7088}));m.position.copy(v3(a,b,GR*1.01));globe.add(m);});
+  Object.entries(LOC).forEach(([k,[a,b]])=>{const g=new THREE.Group();g.position.copy(v3(a,b,GR*1.01));g.lookAt(0,0,0);
+    const dotm=new THREE.Mesh(new THREE.SphereGeometry(.09,14,10),new THREE.MeshBasicMaterial({color:0xc9644a}));
+    const ring=new THREE.Mesh(new THREE.RingGeometry(.14,.2,32),new THREE.MeshBasicMaterial({color:0xc9644a,transparent:true,opacity:.7,side:THREE.DoubleSide}));const add=c=>new THREE.MeshBasicMaterial({color:c,transparent:true,opacity:0,depthWrite:false,side:THREE.DoubleSide});
+    const beam=new THREE.Mesh(new THREE.CylinderGeometry(.24,.05,1.9,20,1,true).rotateX(-Math.PI/2).translate(0,0,-.95),add(0xff8a5c));
+    const rips=[0,1,2].map(()=>new THREE.Mesh(new THREE.RingGeometry(.16,.21,40),add(0xff7a55)));g.add(dotm,ring,beam,...rips);globe.add(g);pins[k]={g,ring,beam,rips};});
+  orbitG=new THREE.Group();orbitG.rotation.set(.45,0,.28);scene.add(orbitG);
+  const oc=[];for(let i=0;i<=128;i++){const a=i/128*Math.PI*2;oc.push(new THREE.Vector3(Math.cos(a)*GR*1.18,0,Math.sin(a)*GR*1.18));}
+  const ol=new THREE.Line(new THREE.BufferGeometry().setFromPoints(oc),new THREE.LineDashedMaterial({color:0xffe3c8,dashSize:.18,gapSize:.14,transparent:true,opacity:.55}));ol.computeLineDistances();orbitG.add(ol);
+  plane=new THREE.Group();const pw=std(0xfff4ea,{roughness:.35}),pr=std(0xc9644a);
+  plane.add(new THREE.Mesh(new THREE.CylinderGeometry(.055,.07,.5,10).rotateZ(Math.PI/2),pw),new THREE.Mesh(new THREE.BoxGeometry(.14,.025,.62),pw),
+    new THREE.Mesh(new THREE.BoxGeometry(.1,.16,.025).translate(-.21,.08,0),pr),new THREE.Mesh(new THREE.ConeGeometry(.055,.1,10).rotateZ(-Math.PI/2).translate(.29,0,0),pr));orbitG.add(plane);
+  puffs=new THREE.Group();scene.add(puffs);
+  for(let i=0;i<5;i++){const c=new THREE.Group(),a=i/5*Math.PI*2;for(let j=0;j<3;j++){const b=new THREE.Mesh(new THREE.IcosahedronGeometry(.22+j*.05,1),std(0xffe6da,{roughness:1,flatShading:true}));b.position.set(j*.26-.26,j===1?.08:0,0);c.add(b);}
+    c.position.set(Math.cos(a)*GR*1.25,(i%2?.9:-1.4),Math.sin(a)*GR*1.25);c.scale.y=.7;puffs.add(c);}
+  // journey lines: from each chapter's place to the next new place
+  const seq=P.map(p=>PLOC[p.label]);
+  seq.forEach((k,j)=>{const from=j?seq[j-1]:null,legs=[];if(from&&from!==k)legs.push([from,k]);if(P[j].label==="MBA + MIT")legs.push(["lis","bos"]);
+    legs.forEach(([x,y])=>{const A=v3(LOC[x][0],LOC[x][1],1),B=v3(LOC[y][0],LOC[y][1],1),ang=A.angleTo(B),pts=[];
+      for(let i=0;i<=64;i++){const t=i/64,q=new THREE.Quaternion().setFromUnitVectors(A,B),p=A.clone().applyQuaternion(new THREE.Quaternion().slerp(q,t));pts.push(p.multiplyScalar(GR*(1.01+.22*ang*Math.sin(Math.PI*t))));}
+      const geo=new THREE.BufferGeometry().setFromPoints(pts);geo.setDrawRange(0,0);const line=new THREE.Line(geo,new THREE.LineBasicMaterial({color:0xc9644a,transparent:true,opacity:.9}));globe.add(line);arcs.push({j,line});});});
+}
+function build(){
+  pieces=P.map((p,n)=>{const[c,r]=GRID[p.label],yb=ROWS-1-r,sh=new THREE.Shape();
+    sh.moveTo(c,yb);edge(sh,c,yb,c+1,yb,r<ROWS-1?hS(c,r):0);edge(sh,c+1,yb,c+1,yb+1,c<COLS-1?vS(c,r):0);
+    edge(sh,c+1,yb+1,c,yb+1,r>0?-hS(c,r-1):0);edge(sh,c,yb+1,c,yb,c>0?-vS(c-1,r):0);
+    const cx=c+.5,cy=yb+.5,geo=new THREE.ExtrudeGeometry(sh,{depth:.12,bevelEnabled:true,bevelThickness:.025,bevelSize:.025,bevelSegments:2,curveSegments:12});geo.translate(-cx,-cy,-.06);
+    const side=std(col(p),{roughness:.45}),g=new THREE.Group(),m=new THREE.Mesh(geo,[side,side]);m.castShadow=m.receiveShadow=true;
+    const ov=new THREE.Mesh(new THREE.ShapeGeometry(sh,12).translate(-cx,-cy,.087),std(0xffffff,{map:labelTex(p,n,c,yb),roughness:.6}));ov.receiveShadow=true;
+    const sg=new THREE.Group();sg.rotation.x=Math.PI/2;sg.position.z=.088;sg.scale.setScalar(.001);(SCENES[p.label]||(()=>{}))(sg);
+    m.userData.i=ov.userData.i=n;g.add(m,ov,sg);g.visible=false;board.add(g);
+    const ghost=new THREE.Group(),gl=new THREE.Line(new THREE.BufferGeometry().setFromPoints(sh.getPoints(14)).translate(0,0,-.07),new THREE.LineBasicMaterial({color:0xffffff,transparent:true,opacity:.75}));
+    const gf=new THREE.Mesh(new THREE.ShapeGeometry(sh,12).translate(0,0,-.08),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.16,depthWrite:false}));ghost.add(gf,gl);ghost.position.set(-COLS/2,-ROWS/2,0);board.add(ghost);
+    const sq=new THREE.Quaternion().setFromEuler(new THREE.Euler((rnd()-.5)*2,(rnd()-.5)*2,(rnd()-.5)*2));
+    return{p,g,m,ov,sg,side,ghost,home:new THREE.Vector3(cx-COLS/2,cy-ROWS/2,0),sq,lift:0,loc:PLOC[p.label]};});
+}
+if(R3){R3.setPixelRatio(Math.min(devicePixelRatio||1,2));R3.outputEncoding=THREE.sRGBEncoding;R3.shadowMap.enabled=true;R3.shadowMap.type=THREE.PCFSoftShadowMap;host.appendChild(R3.domElement);
+  scene.add(new THREE.HemisphereLight(0xfff0e0,0x8a7088,.8));
+  var sun=new THREE.DirectionalLight(0xffd9b0,.85);sun.position.set(6,12,9);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-7,right:7,top:7,bottom:-7,far:50});sun.shadow.bias=-.0005;scene.add(sun);
+  ground=new THREE.Mesh(new THREE.CircleGeometry(5,64),new THREE.ShadowMaterial({opacity:0}));ground.rotation.x=-Math.PI/2;ground.position.y=-.3;ground.receiveShadow=true;stage.add(ground);}
+
+// ---------- scroll drives progress; the story card swaps its text ----------
+let W=1,H=1,STEP=1,pT=0,pS=0,cur=-1,activeCat=null;const mobile=()=>innerWidth<=860,TOTAL=N+2;
+function resize(){W=innerWidth;H=innerHeight;STEP=Math.round(H*.9);$("spacer").style.height=(H+(TOTAL+.4)*STEP)+"px";
+  if(R3){R3.setSize(W,H);camera.aspect=W/H;if(mobile())camera.setViewOffset(W,H,0,-H*.13,W,H);else camera.setViewOffset(W,H,-W*.19,0,W,H);camera.updateProjectionMatrix();}readScroll();}
+function readScroll(){pT=scrollY/STEP;$("bar").style.width=Math.min(100,pT/TOTAL*100)+"%";const s=Math.max(0,Math.min(TOTAL,Math.floor(pT+.45)));if(s!==cur)swap(s);}
+addEventListener("scroll",readScroll,{passive:true});
+const cnt={};P.forEach(p=>p.cats.forEach(c=>cnt[c]=(cnt[c]||0)+1));const mx=Math.max(...Object.values(cnt));
+function storyHTML(s){
+  if(s===0)return`<div class="eyebrow">Mahek Amlani · Commercial strategist</div><h1>Turning good products into growing businesses.</h1>
+    <p class="win">Twelve pieces. One commercial strategist.</p>
+    <p class="lede">For five years I was the generalist. I sold, marketed, launched and even co-founded an agency, across India, the US and Europe. I always started with one question: who buys, and why? The MBA tied it all together. Now I am ready to specialise in go-to-market and commercial strategy.</p>
+    <div class="cats" id="legend">${Object.keys(CATS).map(c=>`<button class="cat" style="--c:${CATS[c]}" data-c="${c}" aria-pressed="${c===activeCat}">${c}</button>`).join("")}</div>
+    <p class="hint">Tap a skill to lift its pieces. Scroll ↓ to bring the pieces in. Short on time? <a href="#" id="bSkip">Read my resume</a> or <a href="#" id="bEnd">skip to the end</a>.</p>`;
+  if(s<=N){const x=P[s-1];return`<div class="eyebrow">Piece ${String(s).padStart(2,"0")} / ${N} · ${LOC[PLOC[x.label]][2]}</div>
+    <h2>${x.title}</h2><p class="lede">${x.role?x.role+" · ":""}${x.when}</p><div class="cats">${catChips(x.cats)}</div>
+    <p class="win">${x.win}</p>
+    <details ${mobile()?"":"open"}><summary>Full story</summary><div>${pfg(x)}<p class="learned"><small>WHAT I LEARNED</small>${x.learned}</p>
+    ${x.url?`<a href="${x.url}" target="_blank" rel="noopener">Visit website ↗</a>`:""}</div></details>`;}
+  if(s===N+1)return`<div class="eyebrow">All ${N} pieces placed</div><h2>The generalist years built the pieces.</h2>
+    <p class="lede">One thread ran through every job: business development. Winning clients, upselling, keeping relationships strong, marketing and bringing in partners. Add operations and now finance, and each piece grew something. Together they point one way: go-to-market and commercial strategy.</p>
+    <div class="mix">${Object.keys(CATS).map(c=>`<div style="--c:${CATS[c]}"><span>${c}</span><i style="width:${(cnt[c]||0)/mx*100}%"></i><span>${cnt[c]||0}</span></div>`).join("")}</div>`;
+  return`<div class="final"><img src="portrait.jpg" alt="Mahek Amlani"><div><div class="eyebrow">Resume complete</div><h2>Mahek Amlani</h2><p class="lede">Generalist by experience. Ready to specialise. Available January 2027, Lisbon and across Europe.</p></div></div>
+    <p class="learned"><small>READY TO GO DEEP IN</small>Go-to-market and commercial strategy. Also open to growth, product marketing and brand roles where go-to-market is the core.</p>
+    
+    <div class="actions"><button class="btn go" id="bCt">Contact me</button><button class="btn" id="bCV">60-second version: my resume</button><button class="btn" id="bTop">Build it again ↑</button></div>`;}
+let swapT=null;
+function swap(s){const first=cur<0;cur=s;const el=$("storyIn");clearTimeout(swapT);
+  const fill=()=>{el.innerHTML=storyHTML(s);el.parentElement.scrollTop=0;wire();el.classList.remove("out");el.classList.add("pre");void el.offsetWidth;el.classList.remove("pre");};
+  if(first)fill();else{el.classList.add("out");swapT=setTimeout(fill,260);}}
+function wire(){const lg=$("legend");if(lg)lg.querySelectorAll("button").forEach(b=>b.onclick=()=>{activeCat=activeCat===b.dataset.c?null:b.dataset.c;lg.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.c===activeCat));});
+  if($("bCV"))$("bCV").onclick=()=>openM("rec");if($("bSkip"))$("bSkip").onclick=e=>{e.preventDefault();openM("rec");};if($("bEnd"))$("bEnd").onclick=e=>{e.preventDefault();scrollTo({top:TOTAL*STEP,behavior:"smooth"});};if($("bCt"))$("bCt").onclick=()=>openM("ctm");if($("bTop"))$("bTop").onclick=()=>scrollTo({top:0,behavior:"smooth"});}
+// ---------- illustrated sky: gradient + soft streaky clouds + faint skyline, colours follow the scroll ----------
+const skyC=$("skycv"),sx=skyC.getContext("2d"),cloudL=document.createElement("canvas"),tint=document.createElement("canvas");let SW=0,SH=0,skyline=[];
+// [top, middle, low, horizon, cloud top, cloud underside]
+const PAL=[["#8f9cb8","#cdb3a6","#f0c590","#ffe2ae","#fff3e2","#ffd9ad"],["#45457a","#82598a","#e3876c","#ffc07c","#f4b6c6","#ff9f7a"],["#262a40","#46304d","#b94e3a","#ff8d42","#7e5674","#ff8a4c"]];
+const hx=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)),mixc=(a,b,k)=>{const A=hx(a),B=hx(b);return`rgb(${A.map((v,i)=>Math.round(v+(B[i]-v)*k)).join()})`;};
+function skySize(){SW=Math.ceil(innerWidth/2);SH=Math.ceil(innerHeight/2);skyC.width=SW;skyC.height=SH;cloudL.width=tint.width=SW*2;cloudL.height=tint.height=SH;
+  const g=cloudL.getContext("2d");let r=7;const R=()=>(r=(r*16807)%2147483647)/2147483647;
+  const blob=(x,y,w,h,a,b)=>{for(const dx of[-SW*2,0,SW*2]){g.save();g.shadowColor=`rgba(255,255,255,${a})`;g.shadowBlur=b;g.shadowOffsetX=SW*8;g.beginPath();g.ellipse(x+dx-SW*8,y,w,h,0,0,7);g.fill();g.restore();}};
+  for(let i=0;i<10;i++)blob(R()*SW*2,SH*(.08+R()*.3),SW*(.15+R()*.25),SH*(.035+R()*.05),.16,28);
+  for(let i=0;i<80;i++){const band=R()<.6;blob(R()*SW*2,SH*(band?.5+R()*.3:.1+R()*.42),SW*(.06+R()*.28),SH*(.004+R()*.016),.22+R()*.45,4+R()*8);}
+  skyline=[];let x=0;while(x<SW){const w=SW*(.008+R()*.03),h=SH*(.01+R()*.028)*(R()<.1?1.9:1);skyline.push([x,w,h]);x+=w;}}
+function skyU(p){return p<2?0:p<N?(p-2)/(N-2):Math.min(2,1+(p-N)/2.5);}
+function drawSky(t,u){if(!SW)return;const i=Math.min(1,Math.floor(u)),k=Math.min(1,u-i),C=PAL[i].map((c,j)=>mixc(c,PAL[i+1][j],k));
+  const gr=sx.createLinearGradient(0,0,0,SH);gr.addColorStop(0,C[0]);gr.addColorStop(.45,C[1]);gr.addColorStop(.76,C[2]);gr.addColorStop(.93,C[3]);sx.fillStyle=gr;sx.fillRect(0,0,SW,SH);
+  const sun=sx.createRadialGradient(SW*.64,SH*.9,0,SW*.64,SH*.9,SW*.45);sun.addColorStop(0,"rgba(255,228,175,.7)");sun.addColorStop(1,"rgba(255,228,175,0)");sx.fillStyle=sun;sx.fillRect(0,0,SW,SH);
+  const tg=tint.getContext("2d"),off=(t*5)%(SW*2);tg.globalCompositeOperation="source-over";tg.clearRect(0,0,SW*2,SH);tg.drawImage(cloudL,0,0);
+  tg.globalCompositeOperation="source-in";const cg=tg.createLinearGradient(0,0,0,SH);cg.addColorStop(0,C[4]);cg.addColorStop(.85,C[5]);tg.fillStyle=cg;tg.fillRect(0,0,SW*2,SH);
+  sx.globalAlpha=.85;sx.drawImage(tint,-off,0);sx.drawImage(tint,SW*2-off,0);
+  sx.globalAlpha=.1+.32*Math.min(1,u/2);sx.fillStyle="#2a2236";skyline.forEach(([x,w,h])=>sx.fillRect(x,SH-h,w+.6,h));sx.globalAlpha=1;}
+addEventListener("resize",()=>{skySize();drawSky(performance.now()/1000,skyU(pS));});skySize();drawSky(0,0);
+if(!R3)addEventListener("scroll",()=>drawSky(0,skyU(pT)),{passive:true});
+
+// ---------- guide ----------
+$("dots").innerHTML=P.map(()=>"<i></i>").join("");let gLast="";
+function guide(placed,s){const nx=P[Math.min(placed,N-1)];
+  const txt=s===0?["Scroll down to start","Each scroll brings in one puzzle piece from where it happened."]
+   :s<=N?[`Scroll ↓ for piece ${Math.min(s+1,N)}${s<N?": "+P[s].label:""}`,"Watch it fly in from its place on the globe."]
+   :s===N+1?["Keep scrolling ↓","The pieces are growing into a little world."]:["Drag to spin the world","Click any piece to jump to its story."];
+  const key=txt.join();if(key!==gLast){gLast=key;$("gT").textContent=txt[0];$("gS").textContent=txt[1];}
+  $("dots").querySelectorAll("i").forEach((d,j)=>d.style.background=j<placed?col(P[j]):"");}
+
+// ---------- drag to turn, click a piece to jump to it ----------
+let dragY=0,down=null,moved=false;const ray=new THREE.Raycaster(),mp=new THREE.Vector2();
+function pick(e){if(!R3||!pieces.length)return null;mp.set(e.clientX/W*2-1,-e.clientY/H*2+1);ray.setFromCamera(mp,camera);const h=ray.intersectObjects(pieces.filter(o=>o.g.visible).flatMap(o=>[o.m,o.ov]))[0];return h?h.object.userData.i:null;}
+host.addEventListener("pointerdown",e=>{down={x:e.clientX};moved=false;});
+addEventListener("pointermove",e=>{if(down){const dx=e.clientX-down.x;if(Math.abs(dx)>4)moved=true;dragY+=dx*.006;down={x:e.clientX};}else if(e.target===R3?.domElement)host.classList.toggle("hover",pick(e)!==null);});
+addEventListener("pointerup",e=>{if(down&&!moved){const i=pick(e);if(i!==null)scrollTo({top:(i+1.2)*STEP,behavior:"smooth"});}down=null;});
+
+// ---------- resume and contact ----------
+function openM(id){const m=$(id);m.hidden=false;m.scrollTop=0;m.querySelector("[data-close]").focus({preventScroll:true});}
+const closeM=()=>{$("rec").hidden=$("ctm").hidden=true;};
+$("bTopCV").onclick=()=>openM("rec");
+document.querySelectorAll("[data-close]").forEach(b=>b.onclick=closeM);
+["rec","ctm"].forEach(id=>$(id).addEventListener("click",e=>{if(e.target.id===id)closeM();}));addEventListener("keydown",e=>{if(e.key==="Escape")closeM();});
+document.querySelectorAll("[data-copy]").forEach(b=>b.onclick=()=>{const done=()=>{b.textContent="Copied ✓";setTimeout(()=>b.textContent="Copy",1600);};
+  try{navigator.clipboard.writeText(b.dataset.copy).then(done,()=>{const sp=b.previousElementSibling.querySelector("span");getSelection().selectAllChildren(sp);});}catch(e){getSelection().selectAllChildren(b.previousElementSibling.querySelector("span"));}});
+
+// ---------- loop ----------
+const cl=x=>Math.max(0,Math.min(1,x)),sm=x=>x*x*(3-2*x),back=x=>x<=0?.001:1+2.2*Math.pow(x-1,3)+1.2*Math.pow(x-1,2);
+const camA=new THREE.Vector3(0,1.9,17),camW=new THREE.Vector3(0,7.6,10.4),camF=new THREE.Vector3(0,9.2,12.6),cp=new THREE.Vector3(),look=new THREE.Vector3(),v=new THREE.Vector3(),em=new THREE.Color();
+const gq=new THREE.Quaternion(),spin=new THREE.Quaternion(),locEl=$("loc");let gspin=0,orbit=0,lastLoc="",last=performance.now();
+function loop(now){const dt=Math.min(.05,(now-last)/1000),t=now/1000;last=now;pS+=(pT-pS)*Math.min(1,dt*4);
+  const s=Math.max(0,Math.min(TOTAL,Math.floor(pS+.45))),w=sm(cl((pS-N-.6)/.8)),f=sm(cl(pS-N-1.6));let placed=0;
+  // globe turns to the current chapter's place; idles when there is none
+  const lk=s>=1&&s<=N?pieces[s-1]?.loc:null;
+  if(lk){gq.setFromEuler(new THREE.Euler(LOC[lk][0]*D-(mobile()?-.12:.42),-LOC[lk][1]*D+.32,0,"XYZ"));globe.quaternion.slerp(gq,Math.min(1,dt*2.2));gspin=0;}
+  else{gspin+=dt*.08;spin.setFromAxisAngle(v.set(0,1,0),dt*.08);globe.quaternion.premultiply(spin);}
+  const launch=lk?cl((pS-(s-1+.55))/.75):0,seen=new Set(P.filter((p,j)=>pS>j+1).map(p=>PLOC[p.label])),pulse=.5+.5*Math.sin(t*5);
+  Object.entries(pins).forEach(([k,o])=>{const on=k===lk;o.ring.scale.setScalar(on?1.3+.5*pulse:1);o.ring.material.opacity=on?.95:seen.has(k)?.7:.25;
+    const bt=on?(launch<1?.8:.4):seen.has(k)?.12:0;o.beam.material.opacity+=(bt-o.beam.material.opacity)*Math.min(1,dt*4);o.beam.scale.z=on?.4+.6*Math.min(1,launch*1.6+.2):.5;
+    o.rips.forEach((r,i)=>{const ph=(t*.7+i/3)%1;r.scale.setScalar(1+ph*5);r.material.opacity=on?(1-ph)*.8:0;});});
+  if(dotG){const c=dotG.attributes.color.array;if(hiK&&hiK!==lk)near[hiK].forEach(i=>{c[i*3]=dotBase[i*3];c[i*3+1]=dotBase[i*3+1];c[i*3+2]=dotBase[i*3+2];});hiK=lk;
+    if(lk){const a=(.55+.45*Math.sin(t*4))*(launch<1?1:.75);near[lk].forEach(i=>{c[i*3]=dotBase[i*3]+(1-dotBase[i*3])*a;c[i*3+1]=dotBase[i*3+1]+(.93-dotBase[i*3+1])*a;c[i*3+2]=dotBase[i*3+2]+(.62-dotBase[i*3+2])*a;});}
+    dotG.attributes.color.needsUpdate=true;}
+  if(plane){orbitG.position.copy(globe.position);orbitG.scale.copy(globe.scale);const pa=t*.35;plane.position.set(Math.cos(pa)*GR*1.18,0,Math.sin(pa)*GR*1.18);plane.rotation.y=-pa-Math.PI/2;plane.rotation.z=Math.sin(t*2)*.08;
+    puffs.position.copy(globe.position);puffs.scale.copy(globe.scale);puffs.rotation.y=t*.05;}
+  arcs.forEach(a=>{const k=cl((pS-(a.j+.55))/.75);a.line.geometry.setDrawRange(0,Math.round(65*k));});
+  if(f>0)orbit+=dt*.14*f;else orbit+=(0-orbit)*Math.min(1,dt*2);
+  stage.rotation.y=dragY+orbit;board.rotation.x=-Math.PI/2*w;
+  scene.updateMatrixWorld();
+  pieces.forEach((o,j)=>{const k=cl((pS-(j+.55))/.75),e=sm(k);if(k>.98)placed++;o.g.visible=k>0;
+    const hot=activeCat&&o.p.cats.includes(activeCat);o.lift+=((hot?.6:0)-o.lift)*Math.min(1,dt*6);
+    if(k>0&&k<1){board.worldToLocal(globe.localToWorld(v.copy(pins[o.loc].g.position)));o.g.position.lerpVectors(v,o.home,e);o.g.position.z+=Math.sin(Math.PI*e)*2.2;o.g.scale.setScalar(.25+.75*e);o.g.quaternion.copy(o.sq).slerp(qI,e);}
+    else if(k>=1){o.g.position.copy(o.home);o.g.scale.setScalar(1);o.g.quaternion.copy(qI);}
+    o.g.position.z+=o.lift;o.ghost.visible=w<.95;o.ghost.children.forEach(c=>c.material.opacity=(c.isLine?.75:.16)*(1-w)*(k>=1?.3:1));
+    o.sg.scale.setScalar(back(cl((pS-N-.9-j*.05)/.5)));o.side.emissive.copy(em.set(col(o.p))).multiplyScalar(hot?.3:0);});
+  ground.material.opacity=w*.3;
+  const m=mobile()?1.42:1;globe.scale.setScalar(1-.35*w);cp.lerpVectors(camA,camW,w).lerp(camF,f).multiplyScalar(m);camera.position.copy(cp).add(stage.position);look.set(0,w?0:1.5*(1-w),0).add(stage.position);look.y+=0;camera.lookAt(look);
+  if(lk){globe.localToWorld(v.copy(pins[lk].g.position));v.project(camera);if(lk!==lastLoc){lastLoc=lk;locEl.innerHTML="<span>📍 "+LOC[lk][2]+"</span>";locEl.classList.remove("pop");void locEl.offsetWidth;locEl.classList.add("pop");}
+    locEl.style.opacity=pS>s-.5?1:0;locEl.style.transform=`translate(${(v.x+1)/2*W}px,${(1-v.y)/2*H}px) translate(-50%,-150%)`;}else locEl.style.opacity=0;
+  guide(placed,s);drawSky(t,skyU(pS));
+  R3.render(scene,camera);requestAnimationFrame(loop);}
+resize();addEventListener("resize",resize);
+if(R3)(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{buildGlobe();build();requestAnimationFrame(loop);});
+</script>
+
+</body>
+</html>
